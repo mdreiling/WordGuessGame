@@ -2,10 +2,12 @@
 // ================================
 
 // Array of possible countries for the computer to select.
-var computerOptions = ["United States", "Mexico", "Canada", "Panama", "Cuba", "Antigua and Barbuda"];
+var computerOptions = ["united states", "mexico", "canada", "panama", "cuba", "antigua and barbuda"];
 
-// Array for blank letters from computer selection.
+// Array for blank letters, splitting into seperate strings, and replacing with blanks from computer selection.
 var computerBlanks = [];
+var toSplit = [];
+var toReplace = [];
 
 // Array of letters that the user has guessed.
 var userGuesses = [];
@@ -35,25 +37,27 @@ function gameReset () {
     console.log(computerSelection);
 };
 
-function selectionSplitter () {
-    var toSplit = computerSelection;
-    var computerBlanks = toSplit.split("");
-    document.querySelector("#computerSelection-text");
+// function selectionSplitter () {
+//     var toSplit = computerSelection;
+//     var toReplace = toSplit.split("");
+//     document.querySelector("#computerSelection-text");
+//     console.log(toReplace);
+// }
+
+function selectionReplacer () {
+    var toReplace = computerSelection;
+    var computerBlanks = toReplace.replace(/a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z/g, "_ ");
     computerBlanksText.textContent = "Name the Country " + computerBlanks;
     console.log(computerBlanks);
 }
-
-// function selectionReplacer () {
-//     var toReplace = computerBlanks;
-
-// }
 
 // Main Processes
 // ===============================
 
 // Reset function to start the game
 gameReset();
-selectionSplitter();
+// selectionSplitter();
+selectionReplacer();
 
 document.onkeyup = function(event) {
 
