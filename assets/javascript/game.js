@@ -17,7 +17,6 @@ var wins = 0;
 var losses = 0;
 var startingGuesses = 10;
 var remainingGuesses = startingGuesses;
-var roundResult = "No round has been completed"; 
 
 // Declaring variables that hold reference to HTML items.
 var directionsText = document.querySelector("#directions-text");
@@ -25,7 +24,6 @@ var winsText = document.querySelector("#wins-text");
 var lossesText = document.querySelector("#losses-text");
 var guessesRemainingText = document.querySelector("#guessesRemaining-text");
 var lettersGuessedText = document.querySelector("#lettersGuessed-text");
-var roundResultText = document.querySelector("#roundResult-text");
 var computerSelection = "0";
 var computerBlanksText = document.querySelector("#computerBlanks-text");
 
@@ -35,9 +33,13 @@ var computerBlanksText = document.querySelector("#computerBlanks-text");
 function gameReset () {
     computerSelection = computerOptions[Math.floor(Math.random() * computerOptions.length)]
     console.log(computerSelection);
+    for (var i = 0; i < computerSelection.length; i++) {
+        answerArray[i] = "_";
+        }
+    console.log(answerArray.join(" "));
+    computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
+    remainingLetters = computerSelection.length;
 };
-
-
 
 // Main Processes
 // ================================
@@ -48,20 +50,31 @@ gameReset();
 document.onkeyup = function(event) {
 
     var userGuess = event.key;
+    console.log(userGuess);
 
-    // if (userGuess === validGuesses) {
-        console.log(userGuess);
-        for (i = 0; i < computerSelection.length; i++) {
-            if (userGuess === toReplace[i]) {
-                computerBlanks.replace(/_/g, userGuess);
-            } else {
-                console.log("Incorrect Guess")
-            };
-        };
-    // } else {
-    //     alert("Please enter a letter to make a guess")
-    // };
+    if (remainingGuesses === 0 ) {
+        console.log("You Lose");
+        losses++;
+        gameReset();
+    } else if (remainingLetters === 1) {
+        console.log("You Win!");
+        wins++;
+        gameReset();
+    } else {
+        for (var j = 0; j < computerSelection.length; j++) {
+            if (computerSelection[j] === userGuess) {
+                answerArray[j] = userGuess;
+                console.log(answerArray.join(" "));
+                computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
+                remainingLetters--;
+                console.log("Remaining Letters: " + remainingLetters);
+            }
+        }
+    }
     
-    lettersGuessedText.textContent = "Your guesses so far: " + userGuesses;
+    winsText.textContent = "Wins: " + wins;
+    lossesText.textContent = "Losses: " + losses;
     guessesRemainingText.textContent = "Guesses remaining: " + remainingGuesses;
+    lettersGuessedText.textContent = "Your guesses so far: " + userGuesses;
 };
+
