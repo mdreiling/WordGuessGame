@@ -2,7 +2,7 @@
 // ================================
 
 // Array of possible countries for the computer to select.
-var computerOptions = ["united states", "mexico", "canada", "panama", "cuba", "antigua and barbuda"];
+var computerOptions = ["brazil", "mexico", "canada", "spain", "cuba", "japan", "china", "india", "turkey", "germany"];
 
 // Array for blank letters based off of computer selection.
 var answerArray = [];
@@ -52,11 +52,11 @@ document.onkeyup = function(event) {
     var userGuess = event.key;
     console.log(userGuess);
 
-    if (remainingGuesses === 0 ) {
+    if (remainingGuesses <= 0) {
         console.log("You Lose");
         losses++;
         gameReset();
-    } else if (remainingLetters === 1) {
+    } else if (remainingLetters <= 0) {
         console.log("You Win!");
         wins++;
         gameReset();
@@ -70,11 +70,12 @@ document.onkeyup = function(event) {
                 console.log("Remaining Letters: " + remainingLetters);
             }
         }
+        userGuesses.push(" " + userGuess);
     }
-    
+
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
     guessesRemainingText.textContent = "Guesses remaining: " + remainingGuesses;
-    lettersGuessedText.textContent = "Your guesses so far: " + userGuesses;
+    lettersGuessedText.textContent = "Letters Guessed: " + userGuesses;
 };
 
