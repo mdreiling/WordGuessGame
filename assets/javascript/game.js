@@ -15,7 +15,7 @@ var userGuesses = [];
 // Variables for score and guesses.
 var wins = 0;
 var losses = 0;
-var startingGuesses = 10;
+var startingGuesses = 15;
 var remainingGuesses = startingGuesses;
 
 // Declaring variables that hold reference to HTML items.
@@ -26,6 +26,10 @@ var guessesRemainingText = document.querySelector("#guessesRemaining-text");
 var lettersGuessedText = document.querySelector("#lettersGuessed-text");
 var computerSelection = "0";
 var computerBlanksText = document.querySelector("#computerBlanks-text");
+
+// Setting variable for User Guess to check if it matches a letter in the word.
+var letterToCheck = true;
+var letterCheckArray = [];
 
 // Functions
 // ================================
@@ -39,7 +43,15 @@ function gameReset () {
     console.log(answerArray.join(" "));
     computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
     remainingLetters = computerSelection.length;
+    userGuesses = [];
+    remainingGuesses = startingGuesses;
 };
+
+// function letterCheck () {
+//     letterToCheck = reviewLetters() {
+
+//     }
+// };
 
 // Main Processes
 // ================================
@@ -51,31 +63,50 @@ document.onkeyup = function(event) {
 
     var userGuess = event.key;
     console.log(userGuess);
+    // letterCheck();
 
-    if (remainingGuesses <= 0) {
-        console.log("You Lose");
-        losses++;
-        gameReset();
-    } else if (remainingLetters <= 0) {
-        console.log("You Win!");
-        wins++;
-        gameReset();
-    } else {
-        for (var j = 0; j < computerSelection.length; j++) {
-            if (computerSelection[j] === userGuess) {
-                answerArray[j] = userGuess;
-                console.log(answerArray.join(" "));
-                computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
-                remainingLetters--;
-                console.log("Remaining Letters: " + remainingLetters);
+    // Alerts user to enter a letter key to make a guess
+    if (userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" || userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" || userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" || userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" || userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" || userGuess === "z") {
+
+        // Game Continuation Logic - Loss Condition: Check for loss by making sure there are Guesses Remaining.
+        if (remainingGuesses < 1) {
+            console.log("You Lose");
+            losses++;
+            answerArray = [];
+            gameReset();
+        } 
+
+        // Game Continuation Logic - Win Condition: Check for win by checking the number of remaining letters in the chosen word.
+        else if (remainingLetters < 1) {
+            console.log("You Win!");
+            wins++;
+            answerArray = [];
+            gameReset();
+        } 
+        
+        // Game Continuation Logic - Game Continues...
+        else {
+
+            // Game Logic for entering correct guesses.
+            for (var j = 0; j < computerSelection.length; j++) {
+                if (computerSelection[j] === userGuess) {
+                    answerArray[j] = userGuess;
+                    console.log(answerArray.join(" "));
+                    computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
+                    remainingLetters--;
+                    console.log("Remaining Letters: " + remainingLetters);
+                }
             }
+            userGuesses.push(" " + userGuess);
+            remainingGuesses--;
         }
-        userGuesses.push(" " + userGuess);
-    }
 
-    winsText.textContent = "Wins: " + wins;
-    lossesText.textContent = "Losses: " + losses;
-    guessesRemainingText.textContent = "Guesses remaining: " + remainingGuesses;
-    lettersGuessedText.textContent = "Letters Guessed: " + userGuesses;
+        winsText.textContent = "Wins: " + wins;
+        lossesText.textContent = "Losses: " + losses;
+        guessesRemainingText.textContent = "Guesses remaining: " + remainingGuesses;
+        lettersGuessedText.textContent = "Letters Guessed: " + userGuesses;
+
+    } else {
+        alert("Please enter a letter to make a guess")
+    };
 };
-
