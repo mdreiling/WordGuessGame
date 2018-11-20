@@ -8,7 +8,7 @@ body {
     width: 800px;
     height: 700px;
     background-color: tomato;
-    border: 10px outset silver;    
+    border: 8px outset silver;    
     padding: 15px;
 }
 
@@ -85,7 +85,8 @@ body {
 }
 
 #guessCountryAreaBanner {
-    margin-top: 8px;
+    position: relative;
+    top: -8px;
     height: fit-content;
     padding: 1px;
     background-color: gray;
@@ -94,14 +95,60 @@ body {
     border-bottom: 2px outset silver;
 }
 
+#guessCountryAreaBanner::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.breifingText {
+    float: left;
+    margin: 8px;
+    width: 140px;
+    height: 100px;
+    padding: 2px;
+    border: 2px inset silver;
+    text-align: left;
+    font-size: 10px;
+    background-color: papayawhip;
+    color: black;
+}
+
+.instructionsText {
+    float: right;
+    margin: 8px;
+    width: 140px;   
+    height: 100px;
+    padding: 2px;
+    border: 2px inset silver;
+    text-align: left;
+    font-size: 10px;
+    background-color: papayawhip;
+    color: black;
+}
+
+.breifingHeader {
+    margin: 2px;
+    padding: 2px;
+    color: red;
+    font-size: 12px;
+}
+
+.textContent {
+    margin: 2px;
+    padding: 2px;
+}
+
 #guessCountryTextArea {
-    margin: auto;
+    float: left;
+    margin: 2px;
     margin-top: 8px;
     margin-bottom: 8px;
     padding: 2px;
     padding-right: 4px;
     padding-left: 4px;
-    width: fit-content;
+    width: 192px;
+    height: 100px;
     border: 2px inset silver;
     background-color: black;
 }
