@@ -9,35 +9,59 @@
 </head>
 <body>
 
-<div class="gameAreaBackground">
-    <h1 class="gameHeader">Where in the World is Carmen Sandiego?</h1>
+    <div class="gameAreaBackground">
+        <h1 class="gameHeader">Where in the World is Carmen Sandiego?</h1>
 
-    <div class="mainGameArea">        
+        <div class="mainGameArea">        
 
-        <p id="directions-text"><b>Try to guess where Carmen is before she escapes.</b></p>
+            <p id="directions-text"><b>Try to guess where Carmen is before she escapes.</b></p>
 
-        <div class="leftGameArea">
-            <img id="worldCaptureEscape" src="">
+            <div class="leftGameArea">
+                <img id="worldCaptureEscape" src="">
 
-            <div id="guessCountryAreaBanner">
+                <div id="guessCountryAreaBanner">
 
-                <div id="guessCountryTextArea">
-                    <p id="guessCountryText">Guess the Country:</p>
-                    <p id="computerBlanks-text"></p>
-                    
+                    <div id="guessCountryTextArea">
+                        <p id="guessCountryText">Guess the Country:</p>
+                        <p id="computerBlanks-text"></p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="rightGameArea">
+
+                <div class="scoreboardArea">
+
+                    <div class="scoreboardContentScore">
+                        <p class="scoreboardText">Wins:</p>
+                        <p id="wins-text">0</p>
+
+                    </div>
+
+                    <div class="scoreboardContentScore">
+                        <p class="scoreboardText">Losses:</p>
+                        <p id="losses-text">0</p>
+
+                    </div>
+                    <br>
+                    <div class="scoreboardContentGuesses">
+                        <p class="scoreboardText">Guesses Remaining:</p>
+                        <p id="guessesRemaining-text">15</p>
+        
+                    </div>
+
+                    <div class="scoreboardContentGuesses">
+                        <p class="scoreboardText">Letters Guessed: </p>
+                        <p id="lettersGuessed-text"></p>
+            
+                    </div>
+                    <iframe src="https://giphy.com/embed/mucV2mhD1TQuQ" frameBorder="0" class="giphy-embed" ></iframe>
                 </div>
             </div>
         </div>
-
-        <div class="rightGameArea">
-            <p id="wins-text">Wins: 0</p>
-            <p id="losses-text">Losses: 0</p>
-            <p id="guessesRemaining-text">Guesses remaining: 15</p>
-            <p id="lettersGuessed-text">Letters Guessed: </p>
-        </div>
-        
     </div>
-</div>
+
 </body>
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </html>

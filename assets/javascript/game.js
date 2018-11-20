@@ -10,7 +10,7 @@ var answerArray = [];
 
 // Array of letters that the user has guessed.
 var validGuesses = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var userGuesses = [];
+var userGuesses = [" "];
 
 // Variables for score and guesses.
 var wins = 0;
@@ -101,10 +101,10 @@ document.onkeyup = function(event) {
             remainingGuesses--;
         }
 
-        winsText.textContent = "Wins: " + wins;
-        lossesText.textContent = "Losses: " + losses;
-        guessesRemainingText.textContent = "Guesses remaining: " + remainingGuesses;
-        lettersGuessedText.textContent = "Letters Guessed: " + userGuesses;
+        winsText.textContent = wins;
+        lossesText.textContent = losses;
+        guessesRemainingText.textContent = remainingGuesses;
+        lettersGuessedText.textContent = userGuesses.join(" ");
 
     } else {
         alert("Please enter a letter to make a guess")

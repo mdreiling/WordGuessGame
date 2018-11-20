@@ -23,7 +23,7 @@ body {
 .mainGameArea {
     margin: 5px;
     margin-top: 15px;
-    height: 500px;
+    height: 520px;
     border: 10px inset silver;
     background-color: white;
 }
@@ -49,7 +49,7 @@ body {
     float: left;
     margin: 8px;
     width: 70%;
-    height: 420px;
+    height: 430px;
     border: 2px inset silver;
     background-color: black;
     padding-top: 5px;
@@ -62,9 +62,9 @@ body {
     margin: 8px;
     margin-left: 2px;
     width: 25%;
-    height: 420px;
+    height: 430px;
     border: 2px inset silver;
-    background-color: black;
+    background-color: gray;
     padding-top: 5px;
     color: lime;
     font-family: 'Courier New', Courier, monospace;
@@ -73,12 +73,13 @@ body {
 #worldCaptureEscape {
     margin: 12px;
     height: 262px;
-    width: 514px;
-    background-color: orange;
+    width: 504px;
+    border: 5px inset silver;
+    background-color: gray;
 }
 
 #guessCountryAreaBanner {
-    margin-top: 12px;
+    margin-top: 8px;
     height: fit-content;
     padding: 1px;
     background-color: gray;
@@ -99,3 +100,45 @@ body {
     background-color: black;
 }
 
+.scoreboardArea {
+    margin: auto;
+}
+
+.scoreboardContentScore {
+    margin: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    height: 60px;
+    border: 2px inset silver;
+    background-color: black;
+    padding: 4px;
+    padding-top: 2px;
+
+}
+
+.scoreboardContentGuesses {
+    margin: 8px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    height: 80px;
+    border: 2px inset silver;
+    background-color: black;
+    padding: 4px;
+    padding-top: 2px;
+
+}
+
+.scoreboardText {
+    margin: 0px;
+    padding-top: 2px;
+}
+
+.giphy-embed {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 65px;
+    height: 60px;
+    width: 60px;
+    background-color: black;
+}
