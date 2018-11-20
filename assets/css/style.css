@@ -1,0 +1,101 @@
+body {
+    background-color: red;
+}
+
+.gameAreaBackground {
+    margin-top: 20px;
+    margin-left: 20%;
+    width: 800px;
+    height: 700px;
+    background-color: tomato;
+    border: 10px outset silver;    
+    padding: 15px;
+}
+
+.gameHeader {
+    margin: 5px;
+    height: 100px;
+    border: 10px inset silver;    
+    background-color: white;
+    text-align: center;
+}
+
+.mainGameArea {
+    margin: 5px;
+    margin-top: 15px;
+    height: 500px;
+    border: 10px inset silver;
+    background-color: white;
+}
+
+.mainGameArea::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#directions-text {
+    margin: 8px;
+    height: 25px;
+    border: 2px inset silver;
+    background-color: black;
+    text-align: center;
+    padding-top: 5px;
+    color: lime;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.leftGameArea {
+    float: left;
+    margin: 8px;
+    width: 70%;
+    height: 420px;
+    border: 2px inset silver;
+    background-color: black;
+    padding-top: 5px;
+    color: lime;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.rightGameArea {
+    float: right;
+    margin: 8px;
+    margin-left: 2px;
+    width: 25%;
+    height: 420px;
+    border: 2px inset silver;
+    background-color: black;
+    padding-top: 5px;
+    color: lime;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#worldCaptureEscape {
+    margin: 12px;
+    height: 262px;
+    width: 514px;
+    background-color: orange;
+}
+
+#guessCountryAreaBanner {
+    margin-top: 12px;
+    height: fit-content;
+    padding: 1px;
+    background-color: gray;
+    text-align: center;
+    border-top: 2px outset silver;
+    border-bottom: 2px outset silver;
+}
+
+#guessCountryTextArea {
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    width: fit-content;
+    border: 2px inset silver;
+    background-color: black;
+}
+

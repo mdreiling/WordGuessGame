@@ -3,23 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Word Guess Game - Trial 1</title>
+    <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 <body>
-    
-<h1>Where in the World is Carmen Sandiego?</h1>
 
-<div>
-    <p id="directions-text"><b>Try to complete the word before your guesses run out.</b></p>
-    <p id="wins-text">Wins: 0</p>
-    <p id="losses-text">Losses: 0</p>
-    <p id="guessesRemaining-text">Guesses remaining: 15</p>
-    <p id="lettersGuessed-text">Letters Guessed: </p>
-    <p id="computerBlanks-text">Guess the Country: </p>
+<div class="gameAreaBackground">
+    <h1 class="gameHeader">Where in the World is Carmen Sandiego?</h1>
+
+    <div class="mainGameArea">        
+
+        <p id="directions-text"><b>Try to guess where Carmen is before she escapes.</b></p>
+
+        <div class="leftGameArea">
+            <img id="worldCaptureEscape" src="">
+
+            <div id="guessCountryAreaBanner">
+
+                <div id="guessCountryTextArea">
+                    <p id="guessCountryText">Guess the Country:</p>
+                    <p id="computerBlanks-text"></p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="rightGameArea">
+            <p id="wins-text">Wins: 0</p>
+            <p id="losses-text">Losses: 0</p>
+            <p id="guessesRemaining-text">Guesses remaining: 15</p>
+            <p id="lettersGuessed-text">Letters Guessed: </p>
+        </div>
+        
+    </div>
 </div>
-
 </body>
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </html>

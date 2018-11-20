@@ -41,7 +41,7 @@ function gameReset () {
         answerArray[i] = "_";
         }
     console.log(answerArray.join(" "));
-    computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
+    computerBlanksText.textContent = answerArray.join(" ");
     remainingLetters = computerSelection.length;
     userGuesses = [];
     remainingGuesses = startingGuesses;
@@ -92,7 +92,7 @@ document.onkeyup = function(event) {
                 if (computerSelection[j] === userGuess) {
                     answerArray[j] = userGuess;
                     console.log(answerArray.join(" "));
-                    computerBlanksText.textContent = "Guess the Country: " + answerArray.join(" ");
+                    computerBlanksText.textContent = answerArray.join(" ");
                     remainingLetters--;
                     console.log("Remaining Letters: " + remainingLetters);
                 }
