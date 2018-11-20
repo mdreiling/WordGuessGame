@@ -2,7 +2,7 @@
 // ================================
 
 // Array of possible countries for the computer to select.
-var computerOptions = ["brazil", "mexico", "canada", "spain", "cuba", "japan", "china", "india", "turkey", "germany"];
+var computerOptions = ["mexico", "canada", "panama", "jamaica", "cuba", "bolivia", "brazil", "argentina", "peru", "france", "germany", "turkey", "hungary", "russia", "sweden", "portugal", "netherlands", "egypt", "ghana", "somalia", "uganda", "mali", "angola", "iraq", "israel", "india", "china", "japan", "indonesia", "kyrgyzstan", "australia"];
 
 // Array for blank letters based off of computer selection.
 var answerArray = [];

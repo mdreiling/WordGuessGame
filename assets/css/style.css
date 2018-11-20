@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: black;
 }
 
 .gameAreaBackground {
@@ -15,9 +15,14 @@ body {
 .gameHeader {
     margin: 5px;
     height: 100px;
-    border: 10px inset silver;    
-    background-color: white;
+    border: 10px inset silver; 
+    background-color: skyblue;
     text-align: center;
+}
+
+.headerImage {
+    height: 100px;
+    width: 135px;
 }
 
 .mainGameArea {
@@ -25,7 +30,8 @@ body {
     margin-top: 15px;
     height: 520px;
     border: 10px inset silver;
-    background-color: white;
+    background-color: black;
+    background-image: url("../images/MainGameArea-Background.png")
 }
 
 .mainGameArea::after {
