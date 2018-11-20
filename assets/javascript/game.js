@@ -2,7 +2,7 @@
 // ================================
 
 // Array of possible countries for the computer to select.
-var computerOptions = ["mexico", "canada", "panama", "jamaica", "cuba", "bolivia", "brazil", "argentina", "peru", "france", "germany", "turkey", "hungary", "russia", "sweden", "portugal", "netherlands", "egypt", "ghana", "somalia", "uganda", "mali", "angola", "iraq", "israel", "india", "china", "japan", "indonesia", "kyrgyzstan", "australia"];
+var computerOptions = ["mexico", "canada", "panama", "jamaica", "cuba", "brazil", "argentina", "peru", "france", "germany", "turkey", "hungary", "russia", "sweden", "portugal", "egypt", "ghana", "somalia", "uganda", "mali", "angola", "mozambique", "iraq", "israel", "india", "china", "japan", "indonesia", "kyrgyzstan", "australia"];
 
 // Array for blank letters based off of computer selection.
 var answerArray = [];
@@ -43,8 +43,6 @@ function gameReset () {
     console.log(answerArray.join(" "));
     computerBlanksText.textContent = answerArray.join(" ");
     remainingLetters = computerSelection.length;
-    userGuesses = [];
-    remainingGuesses = startingGuesses;
 };
 
 // function letterCheck () {
@@ -66,22 +64,21 @@ document.onkeyup = function(event) {
     // letterCheck();
 
     // Alerts user to enter a letter key to make a guess
-    if (userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" || userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" || userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" || userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" || userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" || userGuess === "z") {
+    if (userGuess === "Enter" || userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" || userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" || userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" || userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" || userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" || userGuess === "z") {
 
         // Game Continuation Logic - Loss Condition: Check for loss by making sure there are Guesses Remaining.
-        if (remainingGuesses < 1) {
+        if (remainingGuesses <= 0.8) {
             console.log("You Lose");
             losses++;
             answerArray = [];
+            userGuesses = [];
             gameReset();
         } 
 
         // Game Continuation Logic - Win Condition: Check for win by checking the number of remaining letters in the chosen word.
-        else if (remainingLetters < 1) {
+        else if (remainingLetters <1) {
             console.log("You Win!");
             wins++;
-            answerArray = [];
-            gameReset();
         } 
         
         // Game Continuation Logic - Game Continues...
@@ -89,7 +86,10 @@ document.onkeyup = function(event) {
 
             // Game Logic for entering correct guesses.
             for (var j = 0; j < computerSelection.length; j++) {
-                if (computerSelection[j] === userGuess) {
+                if (answerArray[j] === userGuess) {
+                    alert("That letter has already been used. Please select a new letter.")
+
+                } else if (computerSelection[j] === userGuess) {
                     answerArray[j] = userGuess;
                     console.log(answerArray.join(" "));
                     computerBlanksText.textContent = answerArray.join(" ");
@@ -105,6 +105,15 @@ document.onkeyup = function(event) {
         lossesText.textContent = losses;
         guessesRemainingText.textContent = remainingGuesses;
         lettersGuessedText.textContent = userGuesses.join(" ");
+
+    } else if (userGuess === " ") {
+        answerArray.textContent = [" "];
+        answerArray = [];
+        lettersGuessedText.textContent = " ";
+        userGuesses = [];
+        guessesRemainingText.textContent = startingGuesses;
+        remainingGuesses = startingGuesses;
+        gameReset();
 
     } else {
         alert("Please enter a letter to make a guess")

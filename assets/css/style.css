@@ -1,4 +1,5 @@
 body {
+    background-image: url("../images/funky-lines.png");
     background-color: black;
 }
 
@@ -31,7 +32,7 @@ body {
     height: 520px;
     border: 10px inset silver;
     background-color: black;
-    background-image: url("../images/MainGameArea-Background.png")
+    background-image: url("../images/MainGameArea-Background.png");
 }
 
 .mainGameArea::after {
@@ -93,6 +94,7 @@ body {
     text-align: center;
     border-top: 2px outset silver;
     border-bottom: 2px outset silver;
+    color: rgb(46, 58, 221);
 }
 
 #guessCountryAreaBanner::after {
@@ -111,7 +113,6 @@ body {
     text-align: left;
     font-size: 10px;
     background-color: papayawhip;
-    color: black;
 }
 
 .instructionsText {
@@ -124,7 +125,6 @@ body {
     text-align: left;
     font-size: 10px;
     background-color: papayawhip;
-    color: black;
 }
 
 .breifingHeader {
@@ -151,6 +151,11 @@ body {
     height: 100px;
     border: 2px inset silver;
     background-color: black;
+    color: lime;
+}
+
+#computerBlanks-text {
+    text-transform: uppercase;
 }
 
 .scoreboardArea {
@@ -186,11 +191,16 @@ body {
     padding-top: 2px;
 }
 
+#lettersGuessed-text {
+    text-transform: uppercase;
+}
+
 .giphy-embed {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 65px;
+    border: 2px outset silver;
     height: 60px;
     width: 60px;
     background-color: black;
