@@ -45,11 +45,23 @@ function gameReset () {
     remainingLetters = computerSelection.length;
 };
 
-// function letterCheck () {
-//     letterToCheck = reviewLetters() {
+function gameCheck() {
+        
+    if (remainingGuesses < 1) {
+    console.log("You Lose");
+    losses++;
+    answerArray = [];
+    userGuesses = [];
+    document.getElementById("worldCaptureEscape").src = "assets/images/escapedScreen.png";
+    } 
 
-//     }
-// };
+    // Game Continuation Logic - Win Condition: Check for win by checking the number of remaining letters in the chosen word.
+    else if (remainingLetters < 1) {
+    console.log("You Win!");
+    wins++;
+    document.getElementById("worldCaptureEscape").src = "assets/images/capturedScreen.png";
+    } 
+}
 
 // Main Processes
 // ================================
@@ -66,41 +78,23 @@ document.onkeyup = function(event) {
     // Alerts user to enter a letter key to make a guess
     if (userGuess === "Enter" || userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" || userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" || userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" || userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" || userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" || userGuess === "z") {
 
-        // Game Continuation Logic - Loss Condition: Check for loss by making sure there are Guesses Remaining.
-        if (remainingGuesses <= 0.8) {
-            console.log("You Lose");
-            losses++;
-            answerArray = [];
-            userGuesses = [];
-            gameReset();
-        } 
+        // Game Logic for entering correct guesses.
+        for (var j = 0; j < computerSelection.length; j++) {
+            if (answerArray[j] === userGuess) {
+                alert("That letter has already been used. Please select a new letter.")
 
-        // Game Continuation Logic - Win Condition: Check for win by checking the number of remaining letters in the chosen word.
-        else if (remainingLetters <1) {
-            console.log("You Win!");
-            wins++;
-        } 
-        
-        // Game Continuation Logic - Game Continues...
-        else {
-
-            // Game Logic for entering correct guesses.
-            for (var j = 0; j < computerSelection.length; j++) {
-                if (answerArray[j] === userGuess) {
-                    alert("That letter has already been used. Please select a new letter.")
-
-                } else if (computerSelection[j] === userGuess) {
-                    answerArray[j] = userGuess;
-                    console.log(answerArray.join(" "));
-                    computerBlanksText.textContent = answerArray.join(" ");
-                    remainingLetters--;
-                    console.log("Remaining Letters: " + remainingLetters);
-                }
+            } else if (computerSelection[j] === userGuess) {
+                answerArray[j] = userGuess;
+                console.log(answerArray.join(" "));
+                computerBlanksText.textContent = answerArray.join(" ");
+                remainingLetters--;
+                console.log("Remaining Letters: " + remainingLetters);
             }
-            userGuesses.push(" " + userGuess);
-            remainingGuesses--;
         }
-
+        userGuesses.push(" " + userGuess);
+        remainingGuesses--;
+        
+        gameCheck();
         winsText.textContent = wins;
         lossesText.textContent = losses;
         guessesRemainingText.textContent = remainingGuesses;
@@ -113,6 +107,7 @@ document.onkeyup = function(event) {
         userGuesses = [];
         guessesRemainingText.textContent = startingGuesses;
         remainingGuesses = startingGuesses;
+        document.getElementById("worldCaptureEscape").src = "assets/images/gameMap_political-world-map-white-thin-b6a_gameSize_withBlueBackground.png";
         gameReset();
 
     } else {
